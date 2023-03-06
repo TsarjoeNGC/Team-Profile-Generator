@@ -147,3 +147,8 @@ function createTeamFile() {
 }
 
 
+function render() {
+    addManager();
+}
+
+render();
