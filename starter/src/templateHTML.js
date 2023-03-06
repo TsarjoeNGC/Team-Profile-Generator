@@ -41,37 +41,37 @@ const renderTeam = (team) => {
                 </div>
         `;
 
-    const renderIntern = (intern) => `
-                <div class="card col-3 me-3 mb-5 employee-card">
-                   
-                    <div class="card-header employee-header">
-                        <h2 class="card-title">${intern.name}</h2>
-                        <h3 class="card-title"><i class="fa-solid fa-wrench"></i> ${intern.title}</h3>
-                    </div>
-                    <div class="card-body">
-                        <ul class="list-group">
-                            <li class="list-group-item">ID: ${intern.id}</li>
-                            <li class="list-group-item">
-                                Email: <a href="mailto:${intern.email}">${intern.email}</a>
-                            </li>
-                            <li class="list-group-item">School: ${intern.school}</li>
-                        </ul>
-                    </div>
-                </div>
-        `;
+        const renderIntern = (intern) => `
+        <div class="card col-3 me-3 mb-5 employee-card">
+           
+            <div class="card-header employee-header">
+                <h2 class="card-title">${intern.name}</h2>
+                <h3 class="card-title"><i class="fa-solid fa-wrench"></i> ${intern.title}</h3>
+            </div>
+            <div class="card-body">
+                <ul class="list-group">
+                    <li class="list-group-item">ID: ${intern.id}</li>
+                    <li class="list-group-item">
+                        Email: <a href="mailto:${intern.email}">${intern.email}</a>
+                    </li>
+                    <li class="list-group-item">School: ${intern.school}</li>
+                </ul>
+            </div>
+        </div>
+`;
 
 
-    const html = [];
+const html = [];
 
-    html.push(team.filter((employee) => employee.getRole() === 'Manager').map((manager) => renderManager(manager)));
+html.push(team.filter((employee) => employee.getRole() === 'Manager').map((manager) => renderManager(manager)));
 
-    html.push(
-        team
-            .filter((employee) => employee.getRole() === 'Engineer')
-            // Map all engineer data so that it displays as a html card
-            .map((engineer) => renderEngineer(engineer))
-            .join('')
-    );
+html.push(
+team
+    .filter((employee) => employee.getRole() === 'Engineer')
+    // Map all engineer data so that it displays as a html card
+    .map((engineer) => renderEngineer(engineer))
+    .join('')
+);
 
     html.push(
         team

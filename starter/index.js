@@ -73,3 +73,77 @@ function addManager() {
         });
 }
 
+function addEngineer() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: `What is the engineers's name`,
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: `What is the engineer's employee ID?`,
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: `What is the engineer's email address?`,
+            },
+            {
+                type: 'input',
+                name: 'gitHub',
+                message: `What is the engineer's github profile name?`,
+            },
+        ])
+        .then((val) => {
+            const engineer = new Engineer(val.name, val.id, val.email,val.gitHub);
+            console.table(engineer);
+            teamMembers.push(engineer);
+            addTeamMember();
+        });
+}
+
+function addIntern() {
+    inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'name',
+                message: `What is the Intern's name`,
+            },
+            {
+                type: 'input',
+                name: 'id',
+                message: `What is the Intern's employee ID?`,
+            },
+            {
+                type: 'input',
+                name: 'email',
+                message: `What is the Intern's email address?`,
+            },
+            {
+                type: 'input',
+                name: 'school',
+                message: `What school did the intern go to?`,
+            },
+        ])
+        .then((val) => {
+            const intern = new Intern(val.name, val.id, val.email,val.school);
+            console.table(intern);
+            teamMembers.push(intern);
+            addTeamMember();
+        });
+}
+
+function createTeamFile() {
+    if (!fs.existsSync(DIST_DIR)) {
+        fs.mkdirSync(DIST_DIR);
+    } else {
+        fs.writeFileSync(outputPath, templateHTML(teamMembers), 'utf-8');
+        console.log('HTML file created in the output folder');
+    }
+}
+
+
