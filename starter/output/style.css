@@ -1,0 +1,21 @@
+
+body {
+    font-family: "Lato", sans-serif;
+  }
+  
+  h1,
+  h2 {
+    font-weight: 700;
+  }
+  
+  .team-profile-header {
+    background-color: #fd3272;
+    color: white;
+    padding: 2rem;
+  }
+  
+  .employee-header {
+    background-color: #297dfb;
+    color: white;
+  }
+  
